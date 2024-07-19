@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <NavTop />
       <NavBot />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       {/* SECTION GREETINGS */}
-      <div className="min-h-screen bg-gradient-to-b from-gradient1 to-gradient2 -z-10">
+      <div className="min-h-screen bg-gradient-to-b from-gradient1 to-gradient2">
         <main className="flex items-center justify-center h-full">
           <div className="flex flex-col px-8 md:px-16 lg:px-24 md:mr-36 lg:mr-80 mt-36 md:mt-48 z-10 md:max-w-[600px] lg:max-w-[800px] self-start">
             <h1 className="text-5xl md:text-6xl font-bold text-white">
@@ -39,12 +39,12 @@ const Home = () => {
           <img
             src="/assets/planet3.svg"
             alt="Sampahmas Logo"
-            className="absolute bottom-0 left-0 w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-100"
+            className="absolute bottom-0 left-0 w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-100 "
           />
         </main>
       </div>
       {/* CONTAINER SHOP */}
-      <div className="flex flex-col min-h-screen bg-white rounded-t-3xl -mt-6 z-10 px-12 md:px-20 py-12 md:py-16 gap-6">
+      <div className="flex flex-col min-h-screen bg-white rounded-t-3xl -mt-6 px-12 md:px-20 py-12 md:py-16 gap-6">
         <div className="flex flex-row gap-8 md:items-center items-start justify-between">
           <div className="flex flex-row items-center gap-6 ">
             <div className="text-black text-5xl font-bold font-bebas">
