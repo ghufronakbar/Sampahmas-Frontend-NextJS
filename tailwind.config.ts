@@ -26,6 +26,11 @@ const config: Config = {
         // GRADIENT 1
         gradient1: "#323265",
         gradient2: "#494783",        
+        
+        // GRADIENT 2
+        gradient3: "#3A6FAB",        
+        gradient4: "#3286C2",        
+        gradient5: "#2C96D2",        
       },
     },
   },

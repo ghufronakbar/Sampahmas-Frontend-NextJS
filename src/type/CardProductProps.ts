@@ -1,5 +1,5 @@
 export type CardProductProps = {
-  index: number;
+  idProduct: number;
   name: string;
   category: string;
   price: number;
