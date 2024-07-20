@@ -9,6 +9,7 @@ type ButtonProps = {
   children?: ReactNode;
   className?: string;
   isDisabled?: boolean;
+  color?: string;
 };
 
 const Button = ({
@@ -19,6 +20,7 @@ const Button = ({
   children,
   className,
   isDisabled,
+  color,
 }: ButtonProps) => {
   const [buttonType, setButtonType] = useState("primary");
   const [buttonVariant, setButtonVariant] = useState("fill");
@@ -44,14 +46,15 @@ const Button = ({
 
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} className={`${type == "fill"?
+      `${className} bg-${color} py-3 px-6 rounded-lg cursor-pointer shadow-sm flex justify-center items-center hover:scale-105 duration-300`
+      :`${className} py-3 px-6 rounded-lg cursor-pointer shadow-sm border-${color} border-2 flex justify-center items-center hover:scale-105 duration-300`} `}>
         <button
           className={
-            buttonVariant === "fill"
-              ? `${className} bg-${buttonType} text-white mt-8 py-3 px-4 rounded-lg cursor-pointer border shadow-md text-poppins font-semibold`
-              : `${className} text-${buttonType} mt-8 py-3 px-4 rounded-lg cursor-pointer shadow-md border-${buttonType} border-2 text-poppins font-semibold `
-          }
-          onClick={onClick}
+            type === "fill"
+              ? ` text-white   text-poppins font-semibold`
+              : ` text-${color}   text-poppins font-semibold `
+          }          
           disabled={isDisabled ? true : false}
         >
           {children}
@@ -62,9 +65,9 @@ const Button = ({
   return (
     <button
       className={
-        variant === "fill"
-          ? `${className} bg-${buttonType} text-white mt-8 py-3 px-4 rounded-lg cursor-pointer border shadow-md text-poppins font-semibold`
-          : `${className} text-${buttonType} mt-8 py-3 px-4 rounded-lg cursor-pointer shadow-md border-${buttonType} border-2 text-poppins font-semibold `
+        type === "fill"
+          ? `${className} bg-${color} text-white  py-3 px-6 rounded-lg cursor-pointer shadow-sm text-poppins font-semibold hover:scale-105 duration-300`
+          : `${className} text-${color}  py-3 px-6 rounded-lg cursor-pointer shadow-sm border-${color} border-2 text-poppins font-semibold hover:scale-105 duration-300`
       }
       onClick={onClick}
       disabled={isDisabled}

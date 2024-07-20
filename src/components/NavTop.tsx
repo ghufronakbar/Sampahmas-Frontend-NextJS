@@ -76,7 +76,7 @@ const NavTop = () => {
           alt="Sampahmas Logo"
           width={172}
           height={36}
-          className="cursor-pointer"
+          className="cursor-pointer w-42 h-auto"
         />
         {NavItem.slice(3, 5).map((item) => (
           <Link href={item.link} key={item.name}>

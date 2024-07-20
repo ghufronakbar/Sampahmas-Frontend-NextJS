@@ -31,6 +31,21 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* styles/globals.css atau styles.css */
+.aspect-ratio-box::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* Aspek rasio 16:9 */
+}
+
+.aspect-ratio-water::before {
+  content: '';
+  display: block;
+  padding-top: 258.125%; /* Aspek rasio 16:9 */
+}
+
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

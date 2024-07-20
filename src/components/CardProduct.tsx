@@ -2,6 +2,7 @@ import { CardProductProps } from "@/type/CardProductProps";
 import formatRupiah from "@/utils/format/formatRupiah";
 import Image from "next/image";
 import Link from "next/link";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 type CardProductComponentProps = CardProductProps & {
   isLoading?: boolean;
@@ -25,26 +26,36 @@ const CardProduct = ({
   if (isLoading) return <CardProductLoading />;
   return (
     <div
-      className={"flex flex-col gap-4 border rounded-lg " + className}
+      className={"flex flex-col gap-4 border rounded-lg hover:scale-105 transition-all duration-300" + className}
       key={idProduct}
     >
       <Link
-        href={href ? href : `/product/${idProduct}?name=${name}&category=${category}`}
+        href={
+          href
+            ? href
+            : `/product/${idProduct}?name=${name}&category=${category}`
+        }
       >
-        <div className="w-full h-80 bg-background relative rounded-t-lg flex">
+        <div className="w-full h-80 bg-background relative rounded-t-lg flex p-8 ">
           <Image
             src={image}
             alt={name}
-            fill
-            className="object-cover rounded-lg self-center mx-auto max-w-full max-h-full"
+            width={500}
+            height={500}
+            className="object-cover rounded-lg self-center mx-auto w-full hover:scale-125 transition-all duration-300 "
           />
           <div className="absolute top-4 left-4 border rounded-full bg-white p-2 w-10 h-10 flex flex-col items-center">
-            <img
-              src={isLiked ? "/icons/favorited.svg" : "/icons/favorite.svg"}
-              alt="Add To Favorite"
-              className="rounded-full cursor-pointer self-center w-full h-full"
-              onClick={onClick}
-            />
+            {isLiked ? (
+              <FcLike
+                className="rounded-full cursor-pointer self-center w-full h-full"
+                onClick={onClick}
+              />
+            ) : (
+              <FcLikePlaceholder
+                className="rounded-full cursor-pointer self-center w-full h-full"
+                onClick={onClick}
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-col justify-between p-4">

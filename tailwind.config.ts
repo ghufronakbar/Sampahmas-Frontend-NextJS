@@ -12,11 +12,15 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          "parallax": "url('/wallpaper/sky.png')",
+        parallax: "url('/wallpaper/sky.png')",
+        parallax2: "url('/wallpaper/home.png')",
+        water: "url('/wallpaper/water.jpg')",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         bebas: ["Bebas Neue", "serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        holtwoord: ["Holtwood One SC", "serif"],
       },
       colors: {
         primary: "#71CFB9",
@@ -30,8 +34,12 @@ const config: Config = {
 
         // GRADIENT 2
         gradient3: "#3A6FAB",
-        gradient4: "#3286C2",
+        gradient4: "#7bbce2",
         gradient5: "#2C96D2",
+
+        // GRADIENT 3
+        gradient6: "#71cfb9",
+        gradient7: "#656580",
       },
     },
   },
