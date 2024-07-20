@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { CgProfile, CgSearch } from "react-icons/cg";
 
 const NavTop = () => {
   const router = useRouter();
@@ -26,16 +27,15 @@ const NavTop = () => {
 
   return (
     <>
+      {/* Mobile */}
       <nav
-        className={`lg:hidden fixed top-0 left-0 right-0 w-full flex flex-row justify-between z-20 py-4 transition-colors duration-300 
-          ${scrolling ? "bg-gradient1" : ""} `}
+        className={`lg:hidden fixed top-0 left-0 right-0 w-full flex flex-row justify-evenly z-20 py-4 transition-all duration-300 
+          ${scrolling ? "bg-white border" : ""} `}
       >
-        <Image
-          src="/icons/search.svg"
-          alt="Search"
-          width={18}
-          height={18}
-          className="cursor-pointer ml-6"
+        <CgSearch
+          className={`cursor-pointer w-6 h-6 transition-all duration-300 ${
+            scrolling ? " text-primary" : " text-white"
+          }`}
         />
         <Image
           src="/logo.svg"
@@ -44,23 +44,27 @@ const NavTop = () => {
           height={36}
           className="cursor-pointer"
         />
-        <Image
-          src="/icons/profile.svg"
-          alt="Profile"
-          width={18}
-          height={18}
-          className="cursor-pointer mr-6"
+        <CgProfile
+          className={`cursor-pointer w-6 h-6 transition-all duration-300 ${
+            scrolling ? " text-primary" : " text-white"
+          }`}
         />
       </nav>
+
+      {/* Desktop */}
       <nav
-        className={`hidden fixed top-0 left-0 right-0 w-full lg:flex flex-row items-center justify-evenly z-20 py-6 transition-colors duration-300 
-          ${scrolling ? "bg-gradient1" : ""} `}
+        className={`hidden fixed top-0 left-0 right-0 w-full lg:flex flex-row items-center justify-evenly z-20 py-6 transition-all duration-300 
+          ${scrolling ? "bg-white shadow" : ""} `}
       >
         {NavItem.slice(0, 3).map((item) => (
           <Link href={item.link} key={item.name}>
             <div
               className={
-                pathname === item.link ? "text-secondary" : "text-white"
+                `transition-all duration-300 + ${pathname === item.link
+                  ? "text-primary font-semibold"
+                  : scrolling
+                  ? "text-black"
+                  : "text-white"}`
               }
             >
               {item.name}
@@ -78,7 +82,11 @@ const NavTop = () => {
           <Link href={item.link} key={item.name}>
             <div
               className={
-                pathname === item.link ? "text-secondary" : "text-white"
+                `transition-all duration-300 + ${pathname === item.link
+                  ? "text-primary font-semibold"
+                  : scrolling
+                  ? "text-black"
+                  : "text-white"}`
               }
             >
               {item.name}
@@ -86,20 +94,8 @@ const NavTop = () => {
           </Link>
         ))}
         <div className=" flex flex-row gap-8">
-          <Image
-            src="/icons/search.svg"
-            alt="Search"
-            width={18}
-            height={18}
-            className="cursor-pointer"
-          />
-          <Image
-            src="/icons/profile.svg"
-            alt="Profile"
-            width={18}
-            height={18}
-            className="cursor-pointer"
-          />
+          <CgSearch className={`cursor-pointer w-6 h-6 ${scrolling ? "text-black" : "text-white"}`} />
+          <CgProfile className={`cursor-pointer w-6 h-6 ${scrolling ? "text-black" : "text-white"}`}/>
         </div>
       </nav>
     </>

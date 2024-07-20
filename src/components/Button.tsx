@@ -23,6 +23,7 @@ const Button = ({
   const [buttonType, setButtonType] = useState("primary");
   const [buttonVariant, setButtonVariant] = useState("fill");
   useEffect(() => {
+    console.log(type)
     if (type === "primary") {
       setButtonType("primary");
     } else if (type === "secondary") {
@@ -33,6 +34,7 @@ const Button = ({
   }, []);
 
   useEffect(() => {
+    console.log(variant)
     if (variant === "fill") {
       setButtonVariant("fill");
     } else if (variant === "outline") {
@@ -50,7 +52,7 @@ const Button = ({
               : `${className} text-${buttonType} mt-8 py-3 px-4 rounded-lg cursor-pointer shadow-md border-${buttonType} border-2 text-poppins font-semibold `
           }
           onClick={onClick}
-          disabled={isDisabled}
+          disabled={isDisabled ? true : false}
         >
           {children}
         </button>
