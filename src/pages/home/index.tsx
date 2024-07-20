@@ -5,6 +5,7 @@ import { CardProductProps } from "@/type/CardProductProps";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const Home = () => {
   const TEXT = useText();
@@ -71,8 +72,8 @@ const Home = () => {
               {TEXT.NEW_ARRIVALS}
             </div>
             <div className="md:flex flex-row gap-2 hidden">
-              <img src="/icons/previous.svg" className="cursor-pointer" />
-              <img src="/icons/next.svg" className="cursor-pointer" />
+              <GrPrevious className="cursor-pointer text-gray w-9" />
+              <GrNext className="cursor-pointer text-gray w-9" />
             </div>
           </div>
           <Link href="/product?q=new%20arrivals">
@@ -82,13 +83,14 @@ const Home = () => {
           </Link>
         </div>
         <div className="md:hidden flex flex-row gap-2">
-          <img src="/icons/previous.svg" />
-          <img src="/icons/next.svg" />
+          <GrPrevious className="cursor-pointer text-gray w-9" />
+          <GrNext className="cursor-pointer text-gray w-9" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {/* CARD */}
           {PRODUCT.map((product) => (
             <CardProduct
+              key={product.idProduct}
               isLoading={false}
               idProduct={product.idProduct}
               name={product.name}
@@ -163,8 +165,8 @@ const Home = () => {
               {TEXT.BEST_SELLER}
             </div>
             <div className="md:flex flex-row gap-2 hidden">
-              <img src="/icons/previous.svg" className="cursor-pointer" />
-              <img src="/icons/next.svg" className="cursor-pointer" />
+              <GrPrevious className="cursor-pointer text-gray w-9" />
+              <GrNext className="cursor-pointer text-gray w-9" />
             </div>
           </div>
           <Link href="/product?q=best%20seller">
@@ -174,13 +176,14 @@ const Home = () => {
           </Link>
         </div>
         <div className="md:hidden flex flex-row gap-2">
-          <img src="/icons/previous.svg" />
-          <img src="/icons/next.svg" />
+          <GrPrevious className="cursor-pointer text-gray w-9" />
+          <GrNext className="cursor-pointer text-gray w-9" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {/* CARD */}
           {PRODUCT.map((product) => (
             <CardProduct
+              key={product.idProduct}
               isLoading={false}
               idProduct={product.idProduct}
               name={product.name}
@@ -359,13 +362,20 @@ const Home = () => {
                     className="w-auto h-1/2 "
                   />
                   <div className="w-auto h-1/3 flex-row gap-6 mt-6 ">
-
-                  <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
-                    {TEXT.FIND_VENDING[0]}
-                  </div>
-                  <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
-                  <div className="text text-white lg:text-lg drop-shadow-sm text-start">{TEXT.FIND_VENDING[1]}</div>
-                  <Button color="secondary" type="fill" className="mt-12 lg:mt-6">{TEXT.LEARN_MORE}</Button>
+                    <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
+                      {TEXT.FIND_VENDING[0]}
+                    </div>
+                    <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
+                    <div className="text text-white lg:text-lg drop-shadow-sm text-start">
+                      {TEXT.FIND_VENDING[1]}
+                    </div>
+                    <Button
+                      color="secondary"
+                      type="fill"
+                      className="mt-12 lg:mt-6"
+                    >
+                      {TEXT.LEARN_MORE}
+                    </Button>
                   </div>
                 </div>
                 {/* CARD 2 */}
@@ -378,13 +388,20 @@ const Home = () => {
                     className="w-auto h-1/2 "
                   />
                   <div className="w-auto h-1/3 flex-row gap-6 mt-6 ">
-
-                  <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
-                    {TEXT.EXCHANGE[0]}
-                  </div>
-                  <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
-                  <div className="text text-white lg:text-lg drop-shadow-sm text-start">{TEXT.EXCHANGE[1]}</div>
-                  <Button color="secondary" type="fill" className="mt-12 lg:mt-6">{TEXT.LEARN_MORE}</Button>
+                    <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
+                      {TEXT.EXCHANGE[0]}
+                    </div>
+                    <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
+                    <div className="text text-white lg:text-lg drop-shadow-sm text-start">
+                      {TEXT.EXCHANGE[1]}
+                    </div>
+                    <Button
+                      color="secondary"
+                      type="fill"
+                      className="mt-12 lg:mt-6"
+                    >
+                      {TEXT.LEARN_MORE}
+                    </Button>
                   </div>
                 </div>
                 {/* CARD 3 */}
@@ -397,16 +414,22 @@ const Home = () => {
                     className="w-auto h-1/2 "
                   />
                   <div className="w-auto h-1/3 flex-row gap-6 mt-6 ">
-
-                  <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
-                    {TEXT.ENJOY_SHOPPING[0]}
-                  </div>
-                  <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
-                  <div className="text text-white lg:text-lg drop-shadow-sm text-start">{TEXT.ENJOY_SHOPPING[1]}</div>
-                  <Button color="secondary" type="fill" className="mt-12 lg:mt-6">{TEXT.LEARN_MORE}</Button>
+                    <div className="text text-white font-bebas text-4xl md:text-4xl lg:text-5xl   drop-shadow-lg text-start">
+                      {TEXT.ENJOY_SHOPPING[0]}
+                    </div>
+                    <div className="w-1/2 h-1 bg-secondary self-center md:self-start "></div>
+                    <div className="text text-white lg:text-lg drop-shadow-sm text-start">
+                      {TEXT.ENJOY_SHOPPING[1]}
+                    </div>
+                    <Button
+                      color="secondary"
+                      type="fill"
+                      className="mt-12 lg:mt-6"
+                    >
+                      {TEXT.LEARN_MORE}
+                    </Button>
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>
