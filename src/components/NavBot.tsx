@@ -13,7 +13,7 @@ const NavBot = () => {
 
   return (
     <>
-      <footer className="lg:hidden fixed bottom-4 left-4 right-4 bg-white text-white rounded-3xl shadow-lg z-20 drop-shadow-lg py-4">
+      <footer className="lg:hidden fixed bottom-4 left-4 right-4 bg-white text-white rounded-3xl shadow-lg z-50 drop-shadow-lg py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-2">
           <nav className="flex items-center justify-around">
             {NAV_ITEM.map((item) => (

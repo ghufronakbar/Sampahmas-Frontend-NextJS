@@ -29,7 +29,7 @@ const NavTop = () => {
     <>
       {/* Mobile */}
       <nav
-        className={`lg:hidden fixed top-0 left-0 right-0 w-full flex flex-row justify-evenly z-20 py-4 transition-all duration-300 
+        className={`lg:hidden fixed top-0 left-0 right-0 w-full flex flex-row justify-evenly z-50 py-4 transition-all duration-300 
           ${scrolling ? "bg-white border" : ""} `}
       >
         <CgSearch
@@ -53,7 +53,7 @@ const NavTop = () => {
 
       {/* Desktop */}
       <nav
-        className={`hidden fixed top-0 left-0 right-0 w-full lg:flex flex-row items-center justify-evenly z-20 py-6 transition-all duration-300 
+        className={`hidden fixed top-0 left-0 right-0 w-full lg:flex flex-row items-center justify-evenly z-50 py-6 transition-all duration-300 
           ${scrolling ? "bg-white shadow" : ""} `}
       >
         {NavItem.slice(0, 3).map((item) => (
