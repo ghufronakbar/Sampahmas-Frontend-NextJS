@@ -11,7 +11,7 @@ const NavTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
+      if (window.scrollY > (0.8 * window.innerHeight)) {
         setScrolling(true);
       } else {
         setScrolling(false);
