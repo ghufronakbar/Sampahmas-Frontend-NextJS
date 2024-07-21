@@ -3,11 +3,14 @@ import Home from "../[lang]/home";
 import Image from "next/image";
 import useText from "@/constants/text";
 import Button from "@/components/Button";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Index() {
   const TEXT = useText();
+  const router = useRouter();
+  const { lang } = router.query;
   return (
     <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative h-full">
       <div className="flex flex-col px-12 right-0 z-10 w-full fixed mt-32 items-start ">
@@ -55,9 +58,13 @@ export default function Index() {
           className="fixed -left-7 bottom-72 md:-bottom-28 md:-left-6 h-auto w-[300px] md:w-[500px]"
         />
       </main>
-      <Button className="fixed bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 bg-opacity-50 border" color="primary" href="/en/home">
-          {TEXT.GET_STARTED}
-        </Button>
+      <Button
+        className="fixed bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 bg-opacity-50 border"
+        color="primary"
+        href={`/${lang}/home`}
+      >
+        {TEXT.GET_STARTED}
+      </Button>
     </div>
   );
 }
