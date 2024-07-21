@@ -15,16 +15,23 @@ const Home = () => {
   return (
     <>
       {/* CONTAINER GREETINGS */}
-      <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative ">
-        <main className="flex items-center justify-center h-full w-full">
-          <div className="flex flex-col px-10 mx-96 mt-40 md:mt-48 z-10 w-full">
-            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl fixed left-6 mx-10 ">
-              {TEXT.TITLE}
-            </h1>
-            <p className="text-md md:text-lg text-white mx-10 fixed left-6 max-w-[400px] mt-20 md:max-w-[600px] lg:max-w-[800px]">
-              {TEXT.DESCRIPTION}
-            </p>
-          </div>
+      <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative h-full">
+        <div className="flex flex-col px-12 right-0 z-10 w-full fixed mt-32 items-start ">
+          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl  ">
+            {TEXT.TITLE}
+          </h1>
+          <p className="text-md md:text-lg text-white left-6 max-w-[400px] mt-12 md:max-w-[600px] lg:max-w-[800px]">
+            {TEXT.DESCRIPTION}
+          </p>
+          <Image
+            src={"/icons/googleplay.png"}
+            alt="Get the app"
+            width={300}
+            height={300}
+            className=" h-auto w-32 lg:w-36 cursor-pointer"
+          />
+        </div>
+        <main className="flex items-center justify-center h-full w-full ">
           <Image
             src="/assets/rocket.svg"
             alt="Sampahmas Logo"
@@ -52,13 +59,6 @@ const Home = () => {
             width="300"
             height={300}
             className="fixed -left-7 bottom-72 md:-bottom-28 md:-left-6 h-auto w-[300px] md:w-[500px]"
-          />
-          <Image
-            src={"/icons/googleplay.png"}
-            alt="Get the app"
-            width={300}
-            height={300}
-            className="fixed bottom-20 md:bottom-24 lg:bottom-36 left-6 h-auto w-32 lg:w-36 mx-10 cursor-pointer"
           />
         </main>
       </div>
@@ -339,7 +339,11 @@ const Home = () => {
                 <Button color="secondary" type="fill" href="/about-us">
                   {TEXT.LEARN_MORE}
                 </Button>
-                <Button color="secondary" type="outline" href="/our-journey">
+                <Button
+                  className=" transform bg-opacity-50 border-white"
+                  color="white"
+                  href="/our-journey"
+                >
                   {TEXT.OUR_JOURNEY}
                 </Button>
               </div>

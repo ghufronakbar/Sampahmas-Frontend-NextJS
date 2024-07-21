@@ -22,6 +22,7 @@ const english = {
     "FIND_VENDING": ["Find Vending","Find a Vending Machine around you, don't miss it!"],
     "EXCHANGE": ["Exchange","Redeem your plastic bottles into Sampay points and Enjoy the Rewards"],
     "ENJOY_SHOPPING":["Enjoy Shopping","Happy Shopping at Sampahmas, wish you a Happy Day"],
+    "GET_STARTED": "Get Started",
 }
 
 const indonesian = {
@@ -46,6 +47,7 @@ const indonesian = {
     "FIND_VENDING": ["Temukan Vending Machine","Temukan Vending Machine disekitar anda sekarang"],
     "EXCHANGE": ["Tukar","Tukarkan botol plastik anda menjadi poin Sampay dan Nikmati Rewardnya"],
     "ENJOY_SHOPPING": ["Selamat Belanja","Selamat Belanja di Sampahmas, semoga Anda menyukainya"],
+    "GET_STARTED": "Mulai Sekarang",
 }
 
 const useText = () => {

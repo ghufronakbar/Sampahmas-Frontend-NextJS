@@ -10,8 +10,12 @@ const NavTop = () => {
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
+    let ratio: number = 0.2;
+    if (pathname === "/home") {
+      ratio = 0.8;
+    }
     const handleScroll = () => {
-      if (window.scrollY > (0.8 * window.innerHeight)) {
+      if (window.scrollY > ratio * window.innerHeight) {
         setScrolling(true);
       } else {
         setScrolling(false);
@@ -23,7 +27,7 @@ const NavTop = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -59,13 +63,13 @@ const NavTop = () => {
         {NavItem.slice(0, 3).map((item) => (
           <Link href={item.link} key={item.name}>
             <div
-              className={
-                `transition-all duration-300 + ${pathname === item.link
+              className={`transition-all duration-300 + ${
+                pathname === item.link
                   ? "text-primary font-semibold"
                   : scrolling
                   ? "text-black"
-                  : "text-white"}`
-              }
+                  : "text-white"
+              }`}
             >
               {item.name}
             </div>
@@ -81,21 +85,29 @@ const NavTop = () => {
         {NavItem.slice(3, 5).map((item) => (
           <Link href={item.link} key={item.name}>
             <div
-              className={
-                `transition-all duration-300 + ${pathname === item.link
+              className={`transition-all duration-300 + ${
+                pathname === item.link
                   ? "text-primary font-semibold"
                   : scrolling
                   ? "text-black"
-                  : "text-white"}`
-              }
+                  : "text-white"
+              }`}
             >
               {item.name}
             </div>
           </Link>
         ))}
         <div className=" flex flex-row gap-8">
-          <CgSearch className={`cursor-pointer w-6 h-6 ${scrolling ? "text-black" : "text-white"}`} />
-          <CgProfile className={`cursor-pointer w-6 h-6 ${scrolling ? "text-black" : "text-white"}`}/>
+          <CgSearch
+            className={`cursor-pointer w-6 h-6 ${
+              scrolling ? "text-black" : "text-white"
+            }`}
+          />
+          <CgProfile
+            className={`cursor-pointer w-6 h-6 ${
+              scrolling ? "text-black" : "text-white"
+            }`}
+          />
         </div>
       </nav>
     </>
