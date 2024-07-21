@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 const english = {
@@ -51,13 +52,16 @@ const indonesian = {
 }
 
 const useText = () => {
-    const [lang, setLang] = useState<string>("en")
+    const router = useRouter()
+    const lang = router.query.lang? router.query.lang : "en"
+    const [language, setLanguage] = useState<string>("en")
     useEffect(() => {
-        const langStroage = localStorage.getItem("lang")        
-        setLang(langStroage || "en")
+        if(router.isReady){            
+            setLanguage(lang as string || "en")
+        }
     },[lang])
-    const language = lang === "en" ? english : lang === "id" ? indonesian : english
-    return language
+    const result = language === "en" ? english : language === "id" ? indonesian : english
+    return result
 }
 
 export default useText

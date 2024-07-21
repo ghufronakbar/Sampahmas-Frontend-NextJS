@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import Home from "./home";
+import Home from "./[lang]/home";
 import Image from "next/image";
 import useText from "@/constants/text";
 import Button from "@/components/Button";
@@ -55,7 +55,7 @@ export default function Index() {
           className="fixed -left-7 bottom-72 md:-bottom-28 md:-left-6 h-auto w-[300px] md:w-[500px]"
         />
       </main>
-      <Button className="fixed bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 bg-opacity-50 border" color="primary" href="/home">
+      <Button className="fixed bottom-10 md:bottom-20 left-1/2 transform -translate-x-1/2 bg-opacity-50 border" color="primary" href="/en/home">
           {TEXT.GET_STARTED}
         </Button>
     </div>
