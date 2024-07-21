@@ -16,7 +16,7 @@ const Shopping = () => {
   return (
     <>
       <div className="bg-black bg-cover w-[100vw] h-[100vh] fixed top-0 -z-10"></div>
-      <div className="flex flex-col min-h-screen bg-white rounded-3xl mt-24 mb-24 px-12 md:px-20 py-12 md:py-16 gap-8 relative z-10">
+      <div className="flex flex-col min-h-screen bg-white rounded-3xl mt-24 mb-24 px-6 md:px-20 py-12 md:py-16 gap-8 relative z-10">
         {/* SUB CONTAINER NEW ARRIVALS */}
         <div className="flex flex-row gap-8 md:items-center items-start justify-between ">
           <div className="flex flex-row items-center gap-6 ">
@@ -38,20 +38,22 @@ const Shopping = () => {
           <GrPrevious className="cursor-pointer text-gray w-9" />
           <GrNext className="cursor-pointer text-gray w-9" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {/* CARD */}
-          {PRODUCT.map((product) => (
-            <CardProduct
-              key={product.idProduct}
-              isLoading={false}
-              idProduct={product.idProduct}
-              name={product.name}
-              category={product.category}
-              price={product.price}
-              image={product.image}
-              isLiked={product.isLiked}
-            />
-          ))}
+        <div className="horizontal-scroll">
+          <div className="container">
+            {/* CARD */}
+            {PRODUCT.map((product) => (
+              <CardProduct
+                key={product.idProduct}
+                isLoading={false}
+                idProduct={product.idProduct}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                image={product.image}
+                isLiked={product.isLiked}
+              />
+            ))}
+          </div>
         </div>
         {/* SUB CONTAINER COLLECTION */}
         <div className="flex flex-row gap-8 md:items-center items-start justify-between">
@@ -131,20 +133,22 @@ const Shopping = () => {
           <GrPrevious className="cursor-pointer text-gray w-9" />
           <GrNext className="cursor-pointer text-gray w-9" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {/* CARD */}
-          {PRODUCT.map((product) => (
-            <CardProduct
-              key={product.idProduct}
-              isLoading={false}
-              idProduct={product.idProduct}
-              name={product.name}
-              category={product.category}
-              price={product.price}
-              image={product.image}
-              isLiked={product.isLiked}
-            />
-          ))}
+        <div className="horizontal-scroll">
+          <div className="container">
+            {/* CARD */}
+            {PRODUCT.map((product) => (
+              <CardProduct
+                key={product.idProduct}
+                isLoading={false}
+                idProduct={product.idProduct}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                image={product.image}
+                isLiked={product.isLiked}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <Footer />

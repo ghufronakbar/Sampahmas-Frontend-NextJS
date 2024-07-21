@@ -44,6 +44,22 @@ body {
   padding-top: 258.125%; /* Aspek rasio 16:9 */
 }
 
+.container {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.horizontal-scroll{
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent; 
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
 
 
 @layer utilities {

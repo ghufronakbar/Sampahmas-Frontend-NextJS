@@ -26,7 +26,7 @@ const CardProduct = ({
   if (isLoading) return <CardProductLoading />;
   return (
     <div
-      className={"flex flex-col gap-4 border rounded-lg hover:scale-105 transition-all duration-300" + className}
+      className={"flex flex-col gap-4 border rounded-lg md:hover:scale-105 transition-all duration-300 " + className}
       key={idProduct}
     >
       <Link
@@ -36,7 +36,7 @@ const CardProduct = ({
             : `/product/${idProduct}?name=${name}&category=${category}`
         }
       >
-        <div className="w-full h-80 bg-background relative rounded-t-lg flex p-8 ">
+        <div className="w-80 h-50 bg-background relative rounded-t-lg flex p-8 ">
           <Image
             src={image}
             alt={name}
@@ -59,9 +59,9 @@ const CardProduct = ({
           </div>
         </div>
         <div className="flex flex-col justify-between p-4">
-          <div className="text-black text-lg font-semibold">{name}</div>
-          <div className="text-gray-500  ">{category}</div>
-          <div className="text-black text-lg font-semibold text-poppins">
+          <div className="text-black font-semibold md:text-lg">{name}</div>
+          <div className="text-gray-500 text-sm md:text-base ">{category}</div>
+          <div className="text-black md:text-lg text-base font-semibold text-poppins">
             {formatRupiah(price)}
           </div>
         </div>
