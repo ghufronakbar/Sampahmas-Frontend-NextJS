@@ -11,6 +11,61 @@ const NavBot = () => {
   const router = useRouter();
   const pathname = router.pathname;
   const [isVisible, setIsVisible] = useState(true);
+  const lang = router.query.lang || "en";
+
+  type NavItem = {
+    name: string;
+    link: string;
+    icon: JSX.Element;
+    iconActive: JSX.Element;
+  };
+  
+  const NAV_ITEM: NavItem[] = [
+    {
+      name: "Home",
+      link: `/${lang}/home`,
+      icon: <CgHome className="cursor-pointer w-6 h-auto text-gray-500" />,
+      iconActive: <CgHome className="cursor-pointer w-6 h-auto text-primary" />,
+    },
+    {
+      name: "Nearby",
+      link: `/${lang}/nearby`,
+      icon: <RiRoadMapLine className="cursor-pointer w-6 h-auto text-gray-500" />,
+      iconActive: (
+        <RiRoadMapLine className="cursor-pointer w-6 h-auto text-primary" />
+      ),
+    },
+    {
+      name: "Exchange",
+      link: `/${lang}/exchange`,
+      icon: (
+        <GiCardExchange className="cursor-pointer w-6 h-auto text-gray-500" />
+      ),
+      iconActive: (
+        <GiCardExchange className="cursor-pointer w-6 h-auto text-primary" />
+      ),
+    },
+    {
+      name: "Shopping",
+      link: `/${lang}/shopping`,
+      icon: (
+        <LuShoppingCart className="cursor-pointer w-6 h-auto text-gray-500" />
+      ),
+      iconActive: (
+        <LuShoppingCart className="cursor-pointer w-6 h-auto text-primary" />
+      ),
+    },
+    {
+      name: "Contact Us",
+      link: `/${lang}/contact`,
+      icon: (
+        <MdContactSupport className="cursor-pointer w-6 h-auto text-gray-500" />
+      ),
+      iconActive: (
+        <MdContactSupport className="cursor-pointer w-6 h-auto text-primary" />
+      ),
+    },
+  ];
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -45,7 +100,7 @@ const NavBot = () => {
         <nav className="flex items-center justify-around">
           {NAV_ITEM.map((item) => (
             <Link href={item.link} key={item.name}>
-              {pathname === item.link ? item.iconActive : item.icon}
+              {router.asPath === item.link ? item.iconActive : item.icon}
             </Link>
           ))}
         </nav>
@@ -54,58 +109,6 @@ const NavBot = () => {
   );
 };
 
-type NavItem = {
-  name: string;
-  link: string;
-  icon: JSX.Element;
-  iconActive: JSX.Element;
-};
 
-const NAV_ITEM: NavItem[] = [
-  {
-    name: "Home",
-    link: "/home",
-    icon: <CgHome className="cursor-pointer w-6 h-auto text-gray-500" />,
-    iconActive: <CgHome className="cursor-pointer w-6 h-auto text-primary" />,
-  },
-  {
-    name: "Nearby",
-    link: "/nearby",
-    icon: <RiRoadMapLine className="cursor-pointer w-6 h-auto text-gray-500" />,
-    iconActive: (
-      <RiRoadMapLine className="cursor-pointer w-6 h-auto text-primary" />
-    ),
-  },
-  {
-    name: "Exchange",
-    link: "/exchange",
-    icon: (
-      <GiCardExchange className="cursor-pointer w-6 h-auto text-gray-500" />
-    ),
-    iconActive: (
-      <GiCardExchange className="cursor-pointer w-6 h-auto text-primary" />
-    ),
-  },
-  {
-    name: "Shopping",
-    link: "/shopping",
-    icon: (
-      <LuShoppingCart className="cursor-pointer w-6 h-auto text-gray-500" />
-    ),
-    iconActive: (
-      <LuShoppingCart className="cursor-pointer w-6 h-auto text-primary" />
-    ),
-  },
-  {
-    name: "Contact Us",
-    link: "/contact",
-    icon: (
-      <MdContactSupport className="cursor-pointer w-6 h-auto text-gray-500" />
-    ),
-    iconActive: (
-      <MdContactSupport className="cursor-pointer w-6 h-auto text-primary" />
-    ),
-  },
-];
 
 export default NavBot;

@@ -3,12 +3,16 @@ import formatRupiah from "@/utils/format/formatRupiah";
 import Image from "next/image";
 import Link from "next/link";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import Button from "./Button";
+import useText from "@/constants/text";
+import formatString from "@/utils/format/formatString";
 
 type CardProductComponentProps = CardProductProps & {
   isLoading?: boolean;
   className?: string;
   onClick?: () => void;
   href?: string;
+  shop?: string;
 };
 
 const CardProduct = ({
@@ -22,50 +26,74 @@ const CardProduct = ({
   price,
   image,
   isLiked,
+  sold,
+  shop = "Green Market",
 }: CardProductComponentProps) => {
+  const TEXT = useText();
   if (isLoading) return <CardProductLoading />;
   return (
     <div
-      className={"flex flex-col gap-4 border rounded-lg md:hover:scale-105 transition-all duration-300 " + className}
+      className={
+        "flex flex-col gap-4 border rounded-lg md:hover:scale-105 transition-all duration-300 " +
+        className
+      }
       key={idProduct}
     >
-      <Link
-        href={
-          href
-            ? href
-            : `/product/${idProduct}?name=${name}&category=${category}`
-        }
+      <div
+        className="w-80 h-50 bg-background relative rounded-t-lg flex p-8 z-40"
+        onClick={() => console.log("clicked")}
       >
-        <div className="w-80 h-50 bg-background relative rounded-t-lg flex p-8 ">
-          <Image
-            src={image}
-            alt={name}
-            width={500}
-            height={500}
-            className="object-cover rounded-lg self-center mx-auto w-full hover:scale-125 transition-all duration-300 "
-          />
-          <div className="absolute top-4 left-4 border rounded-full bg-white p-2 w-10 h-10 flex flex-col items-center">
-            {isLiked ? (
-              <FcLike
-                className="rounded-full cursor-pointer self-center w-full h-full"
-                onClick={onClick}
-              />
-            ) : (
-              <FcLikePlaceholder
-                className="rounded-full cursor-pointer self-center w-full h-full"
-                onClick={onClick}
-              />
-            )}
+        <Image
+          src={image}
+          alt={name}
+          width={500}
+          height={500}
+          className="object-cover rounded-lg self-center mx-auto w-full hover:scale-125 transition-all duration-300 "
+        />
+        <div className="absolute top-4 left-4 border rounded-full bg-white p-2 w-10 h-10 flex flex-col items-center">
+          {isLiked ? (
+            <FcLike
+              className="rounded-full cursor-pointer self-center w-full h-full"
+              onClick={onClick}
+            />
+          ) : (
+            <FcLikePlaceholder
+              className="rounded-full cursor-pointer self-center w-full h-full"
+              onClick={onClick}
+            />
+          )}
+        </div>
+      </div>
+      <div className="flex flex-col justify-between p-4">
+        <div className="text-black font-semibold md:text-lg line-clamp-1">
+          {name}
+        </div>
+        <div className="text-gray-500 text-sm md:text-base line-clamp-1">
+          {category}
+        </div>
+        <div className="text-black md:text-lg text-base font-semibold text-poppins line-clamp-1">
+          {formatRupiah(price)}
+        </div>
+        <div className="w-full flex justify-between items-center my-4 ">
+          <Link
+            href={
+              href
+                ? href
+                : `/product/${idProduct}?name=${name}&category=${category}`
+            }
+          >
+            <button className="text-white bg-primary py-2 px-4 rounded w-full self-end hover:scale-105 transition-all duration-300">
+              Detail
+            </button>
+          </Link>
+          <div className="flex flex-col">
+            <div className="text-black text-sm self-end">
+              {sold} {TEXT.SOLD}
+            </div>
+            <div className="text-black text-sm self-end ">{formatString(shop,16)}</div>
           </div>
         </div>
-        <div className="flex flex-col justify-between p-4">
-          <div className="text-black font-semibold md:text-lg">{name}</div>
-          <div className="text-gray-500 text-sm md:text-base ">{category}</div>
-          <div className="text-black md:text-lg text-base font-semibold text-poppins">
-            {formatRupiah(price)}
-          </div>
-        </div>
-      </Link>
+      </div>
     </div>
   );
 };

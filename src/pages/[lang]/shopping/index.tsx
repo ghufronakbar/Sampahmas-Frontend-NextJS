@@ -4,11 +4,6 @@ import useText from "@/constants/text";
 import { CardProductProps } from "@/type/CardProductProps";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  AiOutlineInstagram,
-  AiOutlineMail,
-  AiOutlineWhatsApp,
-} from "react-icons/ai";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
 const Shopping = () => {
@@ -51,6 +46,7 @@ const Shopping = () => {
                 price={product.price}
                 image={product.image}
                 isLiked={product.isLiked}
+                sold={product.sold}
               />
             ))}
           </div>
@@ -146,6 +142,7 @@ const Shopping = () => {
                 price={product.price}
                 image={product.image}
                 isLiked={product.isLiked}
+                sold={product.sold}
               />
             ))}
           </div>
@@ -164,6 +161,7 @@ const PRODUCT: CardProductProps[] = [
     price: 100000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 141,
   },
   {
     idProduct: 2,
@@ -172,6 +170,7 @@ const PRODUCT: CardProductProps[] = [
     price: 200000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 21,
   },
   {
     idProduct: 3,
@@ -180,6 +179,7 @@ const PRODUCT: CardProductProps[] = [
     price: 300000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 0,
   },
   {
     idProduct: 4,
@@ -188,6 +188,7 @@ const PRODUCT: CardProductProps[] = [
     price: 400000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 0,
   },
   {
     idProduct: 5,
@@ -196,6 +197,7 @@ const PRODUCT: CardProductProps[] = [
     price: 500000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 52,
   },
   {
     idProduct: 6,
@@ -204,6 +206,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 34,
   },
   {
     idProduct: 7,
@@ -212,6 +215,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 26,
   },
   {
     idProduct: 8,
@@ -220,6 +224,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 30,
   },
 ];
 

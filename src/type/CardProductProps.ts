@@ -5,5 +5,6 @@ export type CardProductProps = {
   price: number;
   image: string;
   isLiked: boolean;
+  sold: number
 };
 

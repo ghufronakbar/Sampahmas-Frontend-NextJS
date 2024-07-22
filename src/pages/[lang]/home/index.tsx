@@ -1,21 +1,26 @@
 import Button from "@/components/Button";
 import CardProduct from "@/components/CardProduct";
+import Footer from "@/components/Footer";
 import useText from "@/constants/text";
 import { CardProductProps } from "@/type/CardProductProps";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
 const Home = () => {
+  const router = useRouter();
+  const lang = router.query.lang || "en";
   const TEXT = useText();
   useEffect(() => {
     console.log(useText);
   }, []);
   return (
     <>
+      <div className="bg-black bg-cover w-[100vw] h-[100vh] fixed top-0 -z-10"></div>
       {/* CONTAINER GREETINGS */}
-      <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative h-full">
+      <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative h-full ">
         <div className="flex flex-col px-12 right-0 z-10 w-full fixed mt-32 items-start ">
           <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl  ">
             {TEXT.TITLE}
@@ -64,7 +69,7 @@ const Home = () => {
       </div>
 
       {/* CONTAINER SHOP */}
-      
+
       <div className="flex flex-col min-h-screen bg-white rounded-3xl -my-6 px-12 md:px-20 py-12 md:py-16 gap-8 relative z-30">
         {/* SUB CONTAINER NEW ARRIVALS */}
         <div className="flex flex-row gap-8 md:items-center items-start justify-between ">
@@ -100,6 +105,7 @@ const Home = () => {
                 price={product.price}
                 image={product.image}
                 isLiked={product.isLiked}
+                sold={product.sold}
               />
             ))}
           </div>
@@ -195,6 +201,7 @@ const Home = () => {
                 price={product.price}
                 image={product.image}
                 isLiked={product.isLiked}
+                sold={product.sold}
               />
             ))}
           </div>
@@ -318,6 +325,14 @@ const Home = () => {
             <div className="text text-white text-lg md:text-xl lg:text-2xl w-4/5 drop-shadow-lg text-center">
               {TEXT.GREEN_MARKET_DESCRIPTION}
             </div>
+            <Button
+              color="secondary"
+              type="fill"
+              className="mt-4"
+              href={`/${lang}/green-market`}
+            >
+              {TEXT.GET_STARTED}
+            </Button>
           </div>
         </main>
       </div>
@@ -328,7 +343,7 @@ const Home = () => {
           <main className="flex items-center justify-center h-full w-full"></main>
         </div>
       </div>
-      <div className="relative w-full bg-cover bg-center bg-no-repeat bg-water z-40 mt-6">
+      <div className="relative w-full bg-cover bg-center bg-no-repeat bg-water  z-40 mt-6">
         <div className="aspect-ratio-water flex">
           <div className="w-full flex flex-col items-center mt-32 md:mt-56 lg:mt-96 gap-20 md:gap-32 lg:gap-64">
             {/* SUB SECTION ABOUT */}
@@ -441,6 +456,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <div className="">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>
@@ -456,6 +474,7 @@ const PRODUCT: CardProductProps[] = [
     price: 100000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 141,
   },
   {
     idProduct: 2,
@@ -464,6 +483,7 @@ const PRODUCT: CardProductProps[] = [
     price: 200000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 21,
   },
   {
     idProduct: 3,
@@ -472,6 +492,7 @@ const PRODUCT: CardProductProps[] = [
     price: 300000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 0,
   },
   {
     idProduct: 4,
@@ -480,6 +501,7 @@ const PRODUCT: CardProductProps[] = [
     price: 400000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 0,
   },
   {
     idProduct: 5,
@@ -488,6 +510,7 @@ const PRODUCT: CardProductProps[] = [
     price: 500000,
     image: "/static/product1.png",
     isLiked: true,
+    sold: 52,
   },
   {
     idProduct: 6,
@@ -496,6 +519,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 34,
   },
   {
     idProduct: 7,
@@ -504,6 +528,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 26,
   },
   {
     idProduct: 8,
@@ -512,6 +537,7 @@ const PRODUCT: CardProductProps[] = [
     price: 600000,
     image: "/static/product1.png",
     isLiked: false,
+    sold: 30,
   },
 ];
 

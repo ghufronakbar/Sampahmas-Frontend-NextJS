@@ -12,6 +12,8 @@ export default function Index() {
   const router = useRouter();
   const { lang } = router.query;
   return (
+    <>
+    <div className="bg-black bg-cover w-[100vw] h-[100vh] fixed top-0 -z-10"></div>
     <div className="min-h-screen bg-cover bg-fixed bg-parallax  relative h-full">
       <div className="flex flex-col px-12 right-0 z-10 w-full fixed mt-32 items-start ">
         <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl  ">
@@ -66,5 +68,6 @@ export default function Index() {
         {TEXT.GET_STARTED}
       </Button>
     </div>
+    </>
   );
 }

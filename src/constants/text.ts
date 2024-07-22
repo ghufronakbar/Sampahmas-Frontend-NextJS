@@ -36,6 +36,7 @@ const english = {
     "Happy Shopping at Sampahmas, wish you a Happy Day",
   ],
   GET_STARTED: "Get Started",
+  SOLD: "Sold",
 };
 
 const indonesian = {
@@ -65,14 +66,15 @@ const indonesian = {
     "Temukan Vending Machine disekitar anda sekarang",
   ],
   EXCHANGE: [
-    "Tukar",
+    "Tukarkan Botol Plastik",
     "Tukarkan botol plastik anda menjadi poin Sampay dan Nikmati Rewardnya",
   ],
   ENJOY_SHOPPING: [
-    "Selamat Belanja",
+    "Berbelanja di Sampahmas",
     "Selamat Belanja di Sampahmas, semoga Anda menyukainya",
   ],
   GET_STARTED: "Mulai Sekarang",
+  SOLD: "Terjual",
 };
 
 const useText = () => {
